@@ -30,6 +30,8 @@ public class SimpleGui implements ActionListener {
         window.setSize(300, 300);
 
         window.setVisible(true);
+
+        moveCicle();
     }
 
     protected void changeText() {
@@ -40,6 +42,19 @@ public class SimpleGui implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         changeText();
         changeColor();
+
+    }
+
+    private void moveCicle() {
+        for (int x = 0; x <= 300; x++) {
+            panel.setXY(x, x);
+            window.repaint();
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void changeColor() {
