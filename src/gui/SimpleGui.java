@@ -5,11 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SimpleGui implements ActionListener {
+public class SimpleGui {
 
-    private JButton button;
+    private JButton circleButton;
+    private JButton labelButton;
     private JFrame window;
     private DrawPanel panel;
+    private JLabel label;
+
 
     public static void main(String[] args) {
         new SimpleGui().run();
@@ -18,32 +21,41 @@ public class SimpleGui implements ActionListener {
     protected void run() {
 
         window = new JFrame();
-        button = new JButton("Change color");
+        circleButton = new JButton("Change color");
+        labelButton = new JButton("Change label");
+        label = new JLabel("Not Clicked");
         panel = new DrawPanel();
-        button.addActionListener(this);
+        labelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-        window.getContentPane().add(BorderLayout.SOUTH, button);
+            }
+        });
+        circleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        window.getContentPane().add(BorderLayout.SOUTH, circleButton);
         window.getContentPane().add(BorderLayout.CENTER, panel);
+        window.getContentPane().add(BorderLayout.EAST, labelButton);
+        window.getContentPane().add(BorderLayout.WEST, label);
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        window.setSize(300, 300);
+        window.setSize(500, 500);
 
         window.setVisible(true);
 
-        moveCicle();
+//        moveCicle();
     }
 
     protected void changeText() {
-        button.setText("You clicked me");
+        circleButton.setText("You clicked me");
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        changeText();
-        changeColor();
-
-    }
+    protected void changeLabel() { labelButton.setText("Clicked"); }
 
     private void moveCicle() {
         for (int x = 0; x <= 300; x++) {
