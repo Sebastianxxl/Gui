@@ -25,7 +25,7 @@ public class ChatClient {
         outputTextField = new JTextField(50);
         JButton send = new JButton("Send");
         send.addActionListener(new SendListener());
-        inputTextArea = new JTextArea(20,60);
+        inputTextArea = new JTextArea(20, 60);
         inputTextArea.setEditable(false);
         JScrollPane scroll = new JScrollPane(inputTextArea);
         scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -37,16 +37,16 @@ public class ChatClient {
         frame.add(panel);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700,450);
+        frame.setSize(700, 450);
         frame.setVisible(true);
 
         connectc();
 
     }
 
-    public void connectc(){
+    public void connectc() {
         try {
-            socket = new Socket("127,0,0,1",5000);
+            socket = new Socket("127,0,0,1", 5100);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,7 +63,8 @@ public class ChatClient {
                 );
                 String message;
                 while ((message = reader.readLine()) != null) {
-                    inputTextArea.append(message);
+                    System.out.println("Message received: " + message);
+                    inputTextArea.append(message + "\n");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -79,7 +80,6 @@ public class ChatClient {
                 PrintWriter writer = new PrintWriter(socket.getOutputStream());
                 writer.println(outputTextField.getText());
                 writer.flush();
-                writer.close();
 
             } catch (IOException e1) {
                 e1.printStackTrace();

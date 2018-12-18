@@ -17,7 +17,7 @@ public class ChatServer {
 
     public void run() {
         try {
-            ServerSocket socket = new ServerSocket(5000);
+            ServerSocket socket = new ServerSocket(5100);
 
             Socket clientSocket;
             while ((clientSocket = socket.accept()) != null) {
@@ -60,7 +60,6 @@ public class ChatServer {
                 PrintWriter writer = new PrintWriter(socket.getOutputStream());
                 writer.println(message);
                 writer.flush();
-                writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
