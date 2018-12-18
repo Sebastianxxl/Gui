@@ -46,7 +46,7 @@ public class ChatClient {
 
     public void connectc() {
         try {
-            socket = new Socket("127.0.0.1", 5100);
+            socket = new Socket("10.20.41.36", 5000);
         } catch (IOException e) {
             e.printStackTrace();
         }

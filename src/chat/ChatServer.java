@@ -17,7 +17,7 @@ public class ChatServer {
 
     public void run() {
         try {
-            ServerSocket socket = new ServerSocket(5100);
+            ServerSocket socket = new ServerSocket(5000);
 
             Socket clientSocket;
             while ((clientSocket = socket.accept()) != null) {
