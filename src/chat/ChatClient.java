@@ -27,9 +27,13 @@ public class ChatClient {
         send.addActionListener(new SendListener());
         inputTextArea = new JTextArea(20, 60);
         inputTextArea.setEditable(false);
+        inputTextArea.setLineWrap(true);
+        inputTextArea.setWrapStyleWord(true);
         JScrollPane scroll = new JScrollPane(inputTextArea);
         scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+
 
         panel.add(inputTextArea);
         panel.add(outputTextField);
@@ -40,11 +44,11 @@ public class ChatClient {
         frame.setSize(700, 450);
         frame.setVisible(true);
 
-        connectc();
+        connect();
 
     }
 
-    public void connectc() {
+    public void connect() {
         try {
             socket = new Socket("10.20.41.36", 5000);
         } catch (IOException e) {
