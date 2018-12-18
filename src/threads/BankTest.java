@@ -5,13 +5,13 @@ public class BankTest {
         new BankTest().run();
     }
 
-    public void run (){
+    public void run() {
         BankAccount account = new BankAccount(1000);
 
         Thread ryan = new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i=0; i<10; i++){
+                for (int i = 0; i < 10; i++) {
                     account.withdraw(50);
                 }
             }
@@ -21,7 +21,7 @@ public class BankTest {
         Thread marry = new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i=0; i<10; i++){
+                for (int i = 0; i < 10; i++) {
                     account.withdraw(100);
                 }
             }

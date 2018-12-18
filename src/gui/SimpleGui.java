@@ -55,7 +55,10 @@ public class SimpleGui {
     protected void changeText() {
         circleButton.setText("You clicked me");
     }
-    protected void changeLabel() { labelButton.setText("Clicked"); }
+
+    protected void changeLabel() {
+        labelButton.setText("Clicked");
+    }
 
     private void moveCicle() {
         for (int x = 0; x <= 300; x++) {

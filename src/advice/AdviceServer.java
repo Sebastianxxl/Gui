@@ -21,12 +21,12 @@ public class AdviceServer {
         new AdviceServer().run();
     }
 
-    public void run () {
+    public void run() {
         try {
             ServerSocket serverSocket = new ServerSocket(5000);
             Socket clientSocket;
 
-            while((clientSocket = serverSocket.accept())!= null){
+            while ((clientSocket = serverSocket.accept()) != null) {
 
                 PrintWriter writer = new PrintWriter(clientSocket.getOutputStream());
 
